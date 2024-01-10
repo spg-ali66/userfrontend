@@ -6,30 +6,36 @@
     <v-table theme="dark">
       <thead>
         <tr>
-           <th class="text-center">
+           <th class="text-center kopf">
             Name
            </th> 
-           <th class="text-center">
+           <th class="text-center kopf">
             Created
            </th>
-           <th class="text-center">
+           <th class="text-center kopf">
             Role
            </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="user in users" :key="user.id"></tr>
+        <tr v-for="user in users" :key="user.id">
+          <td> <span class="username">{{ user.name }}</span> <br> <span>{{ user.email }}</span></td>
+          <td>{{ user.created }}</td>
+          <td>{{ user.role }}</td>
+          <td><button class="btn-more"><svg-icon type="mdi" :path="path"></svg-icon></button></td>
+        </tr>
       </tbody>
     </v-table>
   </div>
 </template>
-<script setup>
+<script>
 import axios from 'axios';
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiDotsHorizontal } from '@mdi/js';
-</script>
-<script>
+
+
 export default{
+
   components:{
     SvgIcon
   },
@@ -50,11 +56,22 @@ export default{
     catch(e){
       alert(e)
     }
-    
-  },
-  methods:{
-
-  },
+  }
+};
+  </script>
+<style scoped>
+.titel{
+  color: brown;
+  font-size: medium;
 }
-</script>
-<style scoped></style>
+.kopf{
+  color: turquoise;
+}
+.username{
+  font-weight: bold;
+}
+.btn-more{
+  background-color: transparent;
+  border: none;
+}
+</style>
