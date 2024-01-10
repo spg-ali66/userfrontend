@@ -33,3 +33,12 @@ a,
     padding: 0 2rem;
   }
 }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
